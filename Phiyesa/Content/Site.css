@@ -22,3 +22,50 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* User defined styles ... */
+.part_div_01 {
+    height: 250px;
+    border: 1px solid #dedede;
+    padding: 10px;
+    background-image: url('../Images/engine-small_1.png');
+    background-position-x: right;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-color: #f2f2f2;
+    margin-bottom:15px;
+}
+
+.part_div_02 {
+    background-image: url('../Images/brake-kit-small_1.png') !important;
+    background-color: #fff !important;
+}
+
+.part_div_03 {
+    background-image: url('../Images/gearbox.png') !important;
+}
+
+.part_div_04 {
+    background-image: url('../Images/shock_front.png') !important;
+    background-color: #fff !important;
+}
+
+
+/*======================= */
+.div_admin_logoheader {
+    background-color: #ebebeb;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+.div_admin_pageheader {
+    background-color: silver;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.table_admin_pageheader {
+    width: 100%;
+}
