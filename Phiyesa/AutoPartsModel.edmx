@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PHIYESA_AutoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AutoMake">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CarMake" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="AutoModel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CarMake" Type="int" />
+          <Property Name="CarModelDesc" Type="nvarchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="AutoPart">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PartNo" Type="nvarchar" MaxLength="16" />
+          <Property Name="PartCategory" Type="int" />
+          <Property Name="Year" Type="nvarchar" MaxLength="4" />
+          <Property Name="Make" Type="int" />
+          <Property Name="Model" Type="int" />
+          <Property Name="PartDescription" Type="nvarchar" MaxLength="128" />
+          <Property Name="Brand" Type="int" />
+          <Property Name="MadeIn" Type="int" />
+          <Property Name="EngineType" Type="int" />
+          <Property Name="PartSubCategory" Type="int" />
+          <Property Name="PartImage" Type="nvarchar" MaxLength="16" />
+        </EntityType>
+        <EntityType Name="AutoPartBrand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrandName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MadeInCountry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="PartCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PartCategoryDesc" Type="nvarchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="PartSubCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PartCategory" Type="int" />
+          <Property Name="PartSubCategoryDesc" Type="nvarchar" MaxLength="64" />
+        </EntityType>
+        <EntityContainer Name="PHIYESA_AutoModelStoreContainer">
+          <EntitySet Name="AutoMake" EntityType="Self.AutoMake" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AutoModel" EntityType="Self.AutoModel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AutoPart" EntityType="Self.AutoPart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AutoPartBrand" EntityType="Self.AutoPartBrand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MadeInCountry" EntityType="Self.MadeInCountry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PartCategory" EntityType="Self.PartCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PartSubCategory" EntityType="Self.PartSubCategory" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PHIYESA_AutoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AutoMake">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CarMake" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AutoModel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CarMake" Type="Int32" />
+          <Property Name="CarModelDesc" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AutoPart">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PartNo" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="PartCategory" Type="Int32" />
+          <Property Name="Year" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Make" Type="Int32" />
+          <Property Name="Model" Type="Int32" />
+          <Property Name="PartDescription" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Brand" Type="Int32" />
+          <Property Name="MadeIn" Type="Int32" />
+          <Property Name="EngineType" Type="Int32" />
+          <Property Name="PartSubCategory" Type="Int32" />
+          <Property Name="PartImage" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="PHIYESA_AutoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AutoMakes" EntityType="Self.AutoMake" />
+          <EntitySet Name="AutoModels" EntityType="Self.AutoModel" />
+          <EntitySet Name="AutoParts" EntityType="Self.AutoPart" />
+          <EntitySet Name="AutoPartBrands" EntityType="PHIYESA_AutoModel.AutoPartBrand" />
+          <EntitySet Name="MadeInCountries" EntityType="PHIYESA_AutoModel.MadeInCountry" />
+          <EntitySet Name="PartCategories" EntityType="PHIYESA_AutoModel.PartCategory" />
+          <EntitySet Name="PartSubCategories" EntityType="PHIYESA_AutoModel.PartSubCategory" />
+        </EntityContainer>
+        <EntityType Name="AutoPartBrand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MadeInCountry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PartCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PartCategoryDesc" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PartSubCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PartCategory" Type="Int32" />
+          <Property Name="PartSubCategoryDesc" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PHIYESA_AutoModelStoreContainer" CdmEntityContainer="PHIYESA_AutoEntities">
+          <EntitySetMapping Name="AutoMakes">
+            <EntityTypeMapping TypeName="PHIYESA_AutoModel.AutoMake">
+              <MappingFragment StoreEntitySet="AutoMake">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CarMake" ColumnName="CarMake" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AutoModels">
+            <EntityTypeMapping TypeName="PHIYESA_AutoModel.AutoModel">
+              <MappingFragment StoreEntitySet="AutoModel">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CarMake" ColumnName="CarMake" />
+                <ScalarProperty Name="CarModelDesc" ColumnName="CarModelDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AutoParts">
+            <EntityTypeMapping TypeName="PHIYESA_AutoModel.AutoPart">
+              <MappingFragment StoreEntitySet="AutoPart">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PartNo" ColumnName="PartNo" />
+                <ScalarProperty Name="PartCategory" ColumnName="PartCategory" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="PartDescription" ColumnName="PartDescription" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="MadeIn" ColumnName="MadeIn" />
+                <ScalarProperty Name="EngineType" ColumnName="EngineType" />
+                <ScalarProperty Name="PartSubCategory" ColumnName="PartSubCategory" />
+                <ScalarProperty Name="PartImage" ColumnName="PartImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AutoPartBrands">
+            <EntityTypeMapping TypeName="PHIYESA_AutoModel.AutoPartBrand">
+              <MappingFragment StoreEntitySet="AutoPartBrand">
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MadeInCountries">
+            <EntityTypeMapping TypeName="PHIYESA_AutoModel.MadeInCountry">
+              <MappingFragment StoreEntitySet="MadeInCountry">
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartCategories">
+            <EntityTypeMapping TypeName="PHIYESA_AutoModel.PartCategory">
+              <MappingFragment StoreEntitySet="PartCategory">
+                <ScalarProperty Name="PartCategoryDesc" ColumnName="PartCategoryDesc" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartSubCategories">
+            <EntityTypeMapping TypeName="PHIYESA_AutoModel.PartSubCategory">
+              <MappingFragment StoreEntitySet="PartSubCategory">
+                <ScalarProperty Name="PartSubCategoryDesc" ColumnName="PartSubCategoryDesc" />
+                <ScalarProperty Name="PartCategory" ColumnName="PartCategory" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

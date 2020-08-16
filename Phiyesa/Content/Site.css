@@ -24,6 +24,42 @@ textarea {
 }
 
 /* User defined styles ... */
+.text_form_value {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.15em;
+    color: black;
+    font-weight: 600;
+}
+
+.text_form_value_ii {
+    font-size: 1.15em;
+    color: red;
+    font-weight: 600;
+}
+
+.error_message {
+    -webkit-print-color-adjust: exact;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.15em;
+    color: red !important;
+    font-weight: 500;
+}
+
+.error_message_ii {
+    -webkit-print-color-adjust: exact;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.25em;
+    color: red !important;
+}
+
+.div_space20 {
+    height: 20px;
+}
+
+.line_space {
+    height: 5px;
+}
+
 .part_div_01 {
     height: 250px;
     border: 1px solid #dedede;
@@ -43,11 +79,11 @@ textarea {
 }
 
 .part_div_03 {
-    background-image: url('../Images/gearbox.png') !important;
+    background-image: url('../Images/shock_front.png') !important;
 }
 
 .part_div_04 {
-    background-image: url('../Images/shock_front.png') !important;
+    background-image: url('../Images/gearbox.png') !important;
     background-color: #fff !important;
 }
 
@@ -64,8 +100,38 @@ textarea {
     background-color: silver;
     padding-left: 10px;
     padding-right: 10px;
+
 }
 
 .table_admin_pageheader {
     width: 100%;
+}
+
+.active_cell {
+    background-image: url('../images/folder_icon.png');
+    width: 50px;
+    height: 43px;
+    font-size: 1.40em;
+}
+
+.non_active_cell {
+    background-image: url('../images/folder_close_icon.png');
+    width: 44px;
+    height: 43px;
+    font-size: 1.40em;
+}
+
+.img_autopart {
+    height: 220px;
+    border-radius: 25px;
+}
+
+.ul_parts {
+    list-style-image: url('../Images/bullet1_icon.png');
+}
+
+.part_button {
+    position:absolute;
+    left:30px; bottom:30px;
+
 }

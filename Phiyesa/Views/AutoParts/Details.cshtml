@@ -1,0 +1,89 @@
+﻿@model Phiyesa.AutoPart
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<div class="div_admin_pageheader">
+
+    <div class="row">
+        <div class="col-md-7">
+            <table class="table_admin_pageheader">
+                <tr>
+                    <td><h3>Auto Part Details</h3></td>
+                </tr>
+                <tr><td><h4>@Model.PartNo - @Model.PartDescription</h4></td></tr>
+            </table>
+        </div>
+
+        <div class="col-md-5">
+            <table style="float:right; margin:10px;">
+            <tr>
+                <td>
+                    <img src="~/AutopartImages/@Model.PartImage" class="img_autopart img-responsive" />
+                </td>
+            </tr>
+            </table>
+        </div>
+    </div>
+
+    
+
+</div>
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+
+    <table class="table table-striped">
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.PartCategory, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+            <td><span class="text_form_value">@Model.getCategoryDesc.ToString()</span></td>
+            <td>
+                @Html.LabelFor(model => model.Make, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+            <td><span class="text_form_value">@Model.getCarMakeDesc</span></td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.PartSubCategory, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+            <td><span class="text_form_value">@Model.getSubCategoryDesc</span></td>
+            <td>
+                @Html.LabelFor(model => model.Model, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+            <td><span class="text_form_value">@Model.getCarModelDesc</span></td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+            <td colspan="3"><span class="text_form_value">@Model.Year</span></td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Brand, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+            <td><span class="text_form_value">@Model.getCarBrandDesc</span></td>
+        </tr>
+        <tr>
+            <td nowrap="nowrap">
+                @Html.LabelFor(model => model.MadeIn, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+            <td colspan="3"><span class="text_form_value">@Model.getCarMadeInDesc</span></td>
+        </tr>
+    </table>
+
+    <div class="container">
+        <input type="button" value="Back To List" class="btn btn-default" onclick="@("window.location.href='" + @Url.Action("Index", "AutoParts") + "'");" />
+        &nbsp;
+        <input type="button" value="Upload Image" class="btn btn-danger" onclick="@("window.location.href='" + @Url.Action("Image", "AutoParts", new { id=Model.Id }) + "'");" />
+    </div>
+
+</div>

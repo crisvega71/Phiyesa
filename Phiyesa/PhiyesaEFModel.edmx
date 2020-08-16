@@ -4,22 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PHIYESAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="AutoMake">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CarMake" Type="nvarchar" MaxLength="32" />
-        </EntityType>
-        <EntityType Name="AutoModel">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CarMake" Type="int" />
-          <Property Name="CarModelDesc" Type="nvarchar" MaxLength="64" />
-        </EntityType>
+    <Schema Namespace="PHIYESAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AutoPart">
           <Key>
             <PropertyRef Name="Id" />
@@ -35,141 +20,68 @@
           <Property Name="MadeIn" Type="int" />
           <Property Name="EngineType" Type="int" />
           <Property Name="PartSubCategory" Type="int" />
+          <Property Name="PartImage" Type="nvarchar" MaxLength="16" />
         </EntityType>
-        <EntityType Name="PartCategory">
+        <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Firstname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Position" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="MobileNo" Type="nvarchar" MaxLength="12" />
+          <Property Name="Username" Type="nvarchar" MaxLength="20" />
+          <Property Name="Password" Type="nvarchar" MaxLength="128" />
+          <Property Name="UserType" Type="smallint" />
+          <Property Name="HashPassVerification" Type="nvarchar" MaxLength="128" />
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PartCategoryDesc" Type="nvarchar" MaxLength="64" />
-        </EntityType>
-        <EntityType Name="PartSubCategory">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PartCategory" Type="int" />
-          <Property Name="PartSubCategoryDesc" Type="nvarchar" MaxLength="64" />
         </EntityType>
         <EntityContainer Name="PHIYESAModelStoreContainer">
-          <EntitySet Name="AutoMake" EntityType="Self.AutoMake" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AutoModel" EntityType="Self.AutoModel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AutoPart" EntityType="Self.AutoPart" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PartCategory" EntityType="Self.PartCategory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PartSubCategory" EntityType="Self.PartSubCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PHIYESAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="AutoMake">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CarMake" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="AutoModel">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CarMake" Type="Int32" />
-          <Property Name="CarModelDesc" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="AutoPart">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PartNo" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
-          <Property Name="PartCategory" Type="Int32" />
-          <Property Name="Year" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="Make" Type="Int32" />
-          <Property Name="Model" Type="Int32" />
-          <Property Name="PartDescription" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="Brand" Type="Int32" />
-          <Property Name="MadeIn" Type="Int32" />
-          <Property Name="EngineType" Type="Int32" />
-          <Property Name="PartSubCategory" Type="Int32" />
-        </EntityType>
-        <EntityType Name="PartCategory">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PartCategoryDesc" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="PartSubCategory">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PartCategory" Type="Int32" />
-          <Property Name="PartSubCategoryDesc" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityContainer Name="PHIYESAEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AutoMakes" EntityType="Self.AutoMake" />
-          <EntitySet Name="AutoModels" EntityType="Self.AutoModel" />
-          <EntitySet Name="AutoParts" EntityType="Self.AutoPart" />
-          <EntitySet Name="PartCategories" EntityType="Self.PartCategory" />
-          <EntitySet Name="PartSubCategories" EntityType="Self.PartSubCategory" />
+          <EntitySet Name="Users" EntityType="PHIYESAModel.User" />
         </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserType" Type="Int16" />
+          <Property Name="HashPassVerification" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="PHIYESAModelStoreContainer" CdmEntityContainer="PHIYESAEntities1">
-          <EntitySetMapping Name="AutoMakes">
-            <EntityTypeMapping TypeName="PHIYESAModel.AutoMake">
-              <MappingFragment StoreEntitySet="AutoMake">
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="PHIYESAModel.User">
+              <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="CarMake" ColumnName="CarMake" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AutoModels">
-            <EntityTypeMapping TypeName="PHIYESAModel.AutoModel">
-              <MappingFragment StoreEntitySet="AutoModel">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="CarMake" ColumnName="CarMake" />
-                <ScalarProperty Name="CarModelDesc" ColumnName="CarModelDesc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AutoParts">
-            <EntityTypeMapping TypeName="PHIYESAModel.AutoPart">
-              <MappingFragment StoreEntitySet="AutoPart">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="PartNo" ColumnName="PartNo" />
-                <ScalarProperty Name="PartCategory" ColumnName="PartCategory" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
-                <ScalarProperty Name="Make" ColumnName="Make" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
-                <ScalarProperty Name="PartDescription" ColumnName="PartDescription" />
-                <ScalarProperty Name="Brand" ColumnName="Brand" />
-                <ScalarProperty Name="MadeIn" ColumnName="MadeIn" />
-                <ScalarProperty Name="EngineType" ColumnName="EngineType" />
-                <ScalarProperty Name="PartSubCategory" ColumnName="PartSubCategory" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PartCategories">
-            <EntityTypeMapping TypeName="PHIYESAModel.PartCategory">
-              <MappingFragment StoreEntitySet="PartCategory">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="PartCategoryDesc" ColumnName="PartCategoryDesc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PartSubCategories">
-            <EntityTypeMapping TypeName="PHIYESAModel.PartSubCategory">
-              <MappingFragment StoreEntitySet="PartSubCategory">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="PartCategory" ColumnName="PartCategory" />
-                <ScalarProperty Name="PartSubCategoryDesc" ColumnName="PartSubCategoryDesc" />
+                <ScalarProperty Name="HashPassVerification" ColumnName="HashPassVerification" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

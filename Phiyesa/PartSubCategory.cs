@@ -11,11 +11,31 @@ namespace Phiyesa
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class PartSubCategory
     {
+        private PHIYESA_AutoEntities dbPhiyesa = new PHIYESA_AutoEntities();
+
         public int Id { get; set; }
+
+        [Display(Name = "Category")]
+        [Required(ErrorMessage = "*")]
         public Nullable<int> PartCategory { get; set; }
+
+        [Display(Name = "Sub Category")]
+        [Required(ErrorMessage = "*")]
         public string PartSubCategoryDesc { get; set; }
+
+        public string getPartCategoryDesc
+        {
+            get
+            {
+                string part_category_desc = dbPhiyesa.PartCategories.Find(PartCategory).PartCategoryDesc;
+                return part_category_desc;
+            }
+        }
+
     }
+
 }

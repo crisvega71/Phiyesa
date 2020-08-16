@@ -1,0 +1,80 @@
+﻿@model Phiyesa.AutoPart
+@{
+    ViewBag.Title = "CreatePartII";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<div class="div_admin_pageheader">
+    <table class="table_admin_pageheader">
+        <tr>
+            <td><h3>New Auto Part - Part II</h3></td>
+        </tr>
+        <tr><td><h4>@Model.PartNo - @Model.PartDescription</h4></td></tr>
+    </table>
+</div>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+
+    <table class="table table-striped">
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.PartCategory, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+            <td><span class="text_form_value">@Model.getCategoryDesc.ToString()</span></td>
+            <td>
+                @Html.LabelFor(model => model.Make, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+            <td><span class="text_form_value">@Model.getCarMakeDesc</span></td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.PartSubCategory, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.PartSubCategory, (SelectList)ViewBag.ListOfPartSubCategories, "- Select a Sub-Category -", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PartSubCategory, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                @Html.LabelFor(model => model.Model, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.Model, (SelectList)ViewBag.ListOfCarModels, "- Select A Car Model -", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Model, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+            <td colspan="3"><span class="text_form_value">@Model.Year</span></td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Brand, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+            <td><span class="text_form_value">@Model.getCarBrandDesc</span></td>
+        </tr>
+        <tr>
+            <td nowrap="nowrap">
+                @Html.LabelFor(model => model.MadeIn, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+            <td colspan="3"><span class="text_form_value">@Model.getCarMadeInDesc</span></td>
+        </tr>
+    </table>
+
+    <div class="container">
+        <input type="submit" value="Update Next" class="btn btn-default" />
+    </div>
+
+</div>
+
+}

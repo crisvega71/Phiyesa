@@ -135,24 +135,51 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="AutoMake.cs">
-      <DependentUpon>PhiyesaEFModel.tt</DependentUpon>
+      <DependentUpon>AutoPartsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AutoModel.cs">
-      <DependentUpon>PhiyesaEFModel.tt</DependentUpon>
+      <DependentUpon>AutoPartsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AutoPart.cs">
-      <DependentUpon>PhiyesaEFModel.tt</DependentUpon>
+      <DependentUpon>AutoPartsModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AutoPartBrand.cs">
+      <DependentUpon>AutoPartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutoPartsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoPartsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutoPartsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoPartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutoPartsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoPartsModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AutoMakesController.cs" />
+    <Compile Include="Controllers\AutoModelsController.cs" />
+    <Compile Include="Controllers\AutoPartsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PartCategoriesController.cs" />
+    <Compile Include="Controllers\PartSubCategoriesController.cs" />
+    <Compile Include="Controllers\SelectListCommon.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MadeInCountry.cs">
+      <DependentUpon>AutoPartsModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="PartCategory.cs">
-      <DependentUpon>PhiyesaEFModel.tt</DependentUpon>
+      <DependentUpon>AutoPartsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PartSubCategory.cs">
-      <DependentUpon>PhiyesaEFModel.tt</DependentUpon>
+      <DependentUpon>AutoPartsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PhiyesaEFModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -170,8 +197,21 @@
       <DependentUpon>PhiyesaEFModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User.cs">
+      <DependentUpon>PhiyesaEFModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AutoPartsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AutoPartsModel.edmx</DependentUpon>
+      <LastGenOutput>AutoPartsModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AutoPartsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AutoPartsModel.edmx</DependentUpon>
+      <LastGenOutput>AutoPartsModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -182,10 +222,18 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\add_icon.png" />
     <Content Include="Images\brake-kit-small_1.png" />
+    <Content Include="Images\bullet1_icon.png" />
+    <Content Include="Images\details_ico.png" />
+    <Content Include="Images\edit_ico.png" />
     <Content Include="Images\engine-small_1.png" />
+    <Content Include="Images\folder_close_icon.png" />
+    <Content Include="Images\folder_icon.png" />
     <Content Include="Images\gearbox.png" />
+    <Content Include="Images\log_user_icon.png" />
     <Content Include="Images\phiyesa_admin_logo.png" />
     <Content Include="Images\phiyesa_brand_logo.png" />
+    <Content Include="Images\profile_pic_icon.png" />
+    <Content Include="Images\search_icon.png" />
     <Content Include="Images\shock_front.png" />
     <Content Include="PhiyesaEFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -205,6 +253,13 @@
     </EntityDeploy>
     <Content Include="PhiyesaEFModel.edmx.diagram">
       <DependentUpon>PhiyesaEFModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="AutoPartsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AutoPartsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="AutoPartsModel.edmx.diagram">
+      <DependentUpon>AutoPartsModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -237,9 +292,37 @@
     <Content Include="Views\PartCategories\Edit.cshtml" />
     <Content Include="Views\PartCategories\Index.cshtml" />
     <Content Include="Views\Shared\_Layout_Admin.cshtml" />
+    <Content Include="Views\PartSubCategories\Create.cshtml" />
+    <Content Include="Views\PartSubCategories\Delete.cshtml" />
+    <Content Include="Views\PartSubCategories\Details.cshtml" />
+    <Content Include="Views\PartSubCategories\Edit.cshtml" />
+    <Content Include="Views\PartSubCategories\Index.cshtml" />
+    <Content Include="Views\AutoMakes\Create.cshtml" />
+    <Content Include="Views\AutoMakes\Delete.cshtml" />
+    <Content Include="Views\AutoMakes\Details.cshtml" />
+    <Content Include="Views\AutoMakes\Edit.cshtml" />
+    <Content Include="Views\AutoMakes\Index.cshtml" />
+    <Content Include="Views\AutoModels\Create.cshtml" />
+    <Content Include="Views\AutoModels\Delete.cshtml" />
+    <Content Include="Views\AutoModels\Details.cshtml" />
+    <Content Include="Views\AutoModels\Edit.cshtml" />
+    <Content Include="Views\AutoModels\Index.cshtml" />
+    <Content Include="Views\AutoMakes\IndexCarMake.cshtml" />
+    <Content Include="Views\AutoParts\Create.cshtml" />
+    <Content Include="Views\AutoParts\Delete.cshtml" />
+    <Content Include="Views\AutoParts\Details.cshtml" />
+    <Content Include="Views\AutoParts\Edit.cshtml" />
+    <Content Include="Views\AutoParts\Index.cshtml" />
+    <Content Include="Views\AutoParts\CreatePartII.cshtml" />
+    <Content Include="Views\AutoParts\CreateP2Saved.cshtml" />
+    <Content Include="Views\AutoParts\Image.cshtml" />
+    <Content Include="Views\Users\Login.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="AutopartImages\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -257,6 +340,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MiscellClassLib\MiscellClassLib.csproj">
+      <Project>{7fd0663e-ce81-4f63-8f2e-482072ce46df}</Project>
+      <Name>MiscellClassLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Phiyesa.AutoMake>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<div class="div_admin_pageheader">
+<table class="table_admin_pageheader">
+<tr>
+    <td><h3>Auto Make / Brand</h3></td>
+    <td align="right">
+    @{
+        <a href=@Url.Action("Create", "AutoMakes")><img src="~/images/add_icon.png" /></a>
+    }
+    </td>
+</tr>
+</table>
+</div>
+
+<div class="div_space20"></div>
+<table class="table table-bordered">
+<tr>
+    @{
+        var currentIndex = ViewBag.CurrentCarIndex;
+        foreach (var indexChar in (IEnumerable<string>)ViewBag.CarIndexList)
+        {
+            if (indexChar == currentIndex)
+            {
+                <td class="active_cell">@indexChar</td>
+            }
+            else
+            {
+                <td class="non_active_cell"><a href=@Url.Action("IndexCarMake", new { idx = indexChar })>@indexChar</a></td>
+            }
+        }
+    }
+</tr>
+</table>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.CarMake)</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarMake)
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

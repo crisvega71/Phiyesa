@@ -11,10 +11,15 @@ namespace Phiyesa
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class AutoMake
     {
         public int Id { get; set; }
+
+        [Display(Name = "Car Make")]
+        [Required(ErrorMessage = "*")]
         public string CarMake { get; set; }
     }
 }
+

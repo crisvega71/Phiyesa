@@ -1,0 +1,44 @@
+﻿@model Phiyesa.AutoPart
+@{
+    ViewBag.Title = "Image";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<div class="div_admin_pageheader">
+    <table class="table_admin_pageheader">
+        <tr>
+            <td><h3>Upload Auto Part Image</h3></td>
+        </tr>
+        <tr><td><h4>@Model.PartNo - @Model.PartDescription</h4></td></tr>
+    </table>
+</div>
+
+@using (Html.BeginForm("Image", "AutoParts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.PartNo)
+
+        <table class="table-responsive">
+        <tr>
+            <td><div class="div_space20"></div></td>
+        </tr>
+        <tr><td><input type="file" name="fileAutoPart" id="fileAutoPart" /></td></tr>
+        </table>
+
+
+        <div class="line_space"></div>
+        <table class="table table-bordered">
+        <tr>
+            <td>
+                <input type="submit" value="Upload" class="btn btn-default" />
+                &nbsp;
+                <input type="button" value="Cancel" class="btn btn-default" onclick="@("window.location.href='" + @Url.Action("Index", "AutoParts") + "'");" />
+            </td>
+        </tr>
+        </table>
+
+    </div>
+}

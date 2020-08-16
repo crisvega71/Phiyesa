@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "PHIYESA - Online Auto Spare Parts Shop";
 }
 
 <div class="jumbotron">
@@ -18,56 +18,31 @@
 </div>
 
 <div class="row">
-    <div class="col-md-3">
-        <div class="part_div_01">
-            <h3>Engine System</h3>
-            <ul>
-                <li>Belt Drive</li>
-                <li>Engine Timing Control</li>
-                <li>Engine Electric</li>
-            </ul>
-            <br /><br />
-            <a class="btn btn-info" href="#">All parts &raquo;</a>
-        </div>
-    </div>
+    @{
+        string[] partCategoryNames = ViewBag.PartCategories;
+        string[,] partSubCategoryNames = ViewBag.PartSubCategories;
+        string[] partStyleClass = ViewBag.PartStyleClass;
+
+        for (int box = 0; box < 4; box++)
+        {
+            <div class="col-md-3">
+                <div class="part_div_01 @partStyleClass[box]">
+                    <h3>@partCategoryNames[box]</h3>
+                    <ul class="ul_parts">
+                        @for (int psub = 0; psub < 3; psub++)
+                        {
+                            <li>@partSubCategoryNames[box,psub]</li>
+                        }
+                    </ul>
+
+                    <br />
+
+                    <a class="btn btn-info part_button" href="#">All parts &raquo;</a>
+
+                </div>
+            </div>
+        }
+    }
 
 
-    <div class="col-md-3">
-        <div class="part_div_01 part_div_02">
-            <h3>Brake System</h3>
-            <ul>
-                <li>Disk Brake</li>
-                <li>Drum Brake</li>
-                <li>Brake Calipers and Parts</li>
-            </ul>
-            <br /><br />
-            <a class="btn btn-info" href="#">All parts &raquo;</a>
-        </div>
-    </div>
-
-    <div class="col-md-3">
-        <div class="part_div_01 part_div_03">
-            <h3>Transmission and Gears</h3>
-            <ul>
-                <li>Clutch Parts</li>
-                <li>CV Joints Set</li>
-                <li>Bellow</li>
-            </ul>
-            <br /><br />
-            <a class="btn btn-info" href="#">All parts &raquo;</a>
-        </div>
-    </div>
-
-    <div class="col-md-3">
-        <div class="part_div_01 part_div_04">
-            <h3>Suspension and Steering</h3>
-            <ul>
-                <li>Suspension</li>
-                <li>Steering</li>
-                <li>Axle Mouting</li>
-            </ul>
-            <br /><br />
-            <a class="btn btn-info" href="#">All parts &raquo;</a>
-        </div>
-    </div>
 </div>

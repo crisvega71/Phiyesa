@@ -10,9 +10,10 @@ using Phiyesa;
 
 namespace Phiyesa.Controllers
 {
+    [Authorize]
     public class PartCategoriesController : Controller
     {
-        private PHIYESAEntities1 db = new PHIYESAEntities1();
+        private PHIYESA_AutoEntities db = new PHIYESA_AutoEntities();
 
         // GET: PartCategories
         public ActionResult Index()

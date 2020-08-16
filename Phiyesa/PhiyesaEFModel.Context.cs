@@ -25,10 +25,6 @@ namespace Phiyesa
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AutoMake> AutoMakes { get; set; }
-        public virtual DbSet<AutoModel> AutoModels { get; set; }
-        public virtual DbSet<AutoPart> AutoParts { get; set; }
-        public virtual DbSet<PartCategory> PartCategories { get; set; }
-        public virtual DbSet<PartSubCategory> PartSubCategories { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }
